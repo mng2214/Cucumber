@@ -7,20 +7,20 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-import java.time.Duration;
-
 public class DriverHelper {
+
     private static WebDriver driver;
 
-    private DriverHelper() {
-    }
-    // i make my constructor private because i dont want anyone create an object
-    //and manipulate my driver from this class
+    private DriverHelper(){}
+    //I make my constructor private because I do not want anyone to create an object
+    //and manipulate my driver from this class.
 
-    public static WebDriver getDriver() {
-        if (driver == null || ((RemoteWebDriver) driver).getSessionId() == null) {
-            String browser = "chrome";
-            switch (browser) {
+    public static WebDriver getDriver(){
+        if(driver==null|| ((RemoteWebDriver)driver).getSessionId()==null){
+            String browser="chrome";
+
+            switch (browser){
+
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     ChromeOptions options = new ChromeOptions();
@@ -28,19 +28,22 @@ public class DriverHelper {
                     driver = new ChromeDriver(options);
                     break;
                 case "firefox":
-                    WebDriverManager.chromedriver().setup();
+                    WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver();
                     break;
                 default:
                     WebDriverManager.chromedriver().setup();
-                    ChromeOptions option1 = new ChromeOptions();
-                    option1.addArguments("--remote-allow-origins=*");
-                    driver = new ChromeDriver(option1);
+                    ChromeOptions options1 = new ChromeOptions();
+                    options1.addArguments("--remote-allow-origins=*");
+                    driver = new ChromeDriver(options1);
                     break;
             }
             driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+         //   driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         }
         return driver;
     }
+
+
+
 }

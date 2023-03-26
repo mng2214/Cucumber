@@ -1,19 +1,25 @@
-package com.webOrder.stepdefinitions;
+package com.weborder.stepdefinitions;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import org.openqa.selenium.WebDriver;
+import utils.BrowserUtils;
 import utils.ConfigReader;
 import utils.DriverHelper;
 
 public class WebOrderHook {
-    WebDriver driver = DriverHelper.getDriver();
-    @Before //from cucumber
-    public void setup (){
+
+    WebDriver driver= DriverHelper.getDriver();
+
+    @Before//it should be from cucumber
+    public void setup(){
         driver.get(ConfigReader.readProperty("weborderurl"));
     }
-    @After //from cucumber
-    public void teardown () {
-        driver.quit();
+
+    @After
+    public void tearDown(Scenario scenario){
+        BrowserUtils.getScreenShotForCucumber(driver,scenario);
+      //  driver.quit();
     }
 }
