@@ -16,7 +16,7 @@ public class LumaStepDef {
     }
 
     @When("User select to cart {string}")
-    public void user_select_to_cart(String jacketName) {
+    public void user_select_to_cart(String jacketName) throws InterruptedException {
         lumaMainPage.chooseJacket(jacketName);
     }
 

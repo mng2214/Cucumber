@@ -31,9 +31,15 @@ public class WebOrderFoodOrderStepDef {
     public void user_clicks_the_create_group_order_button() throws InterruptedException {
     webOrderFoodOrderPage.clickGroupOrderButton();
     }
+
     @Then("User validates the header of page {string}")
     public void user_validates_the_header_of_page(String expectedHeader) throws InterruptedException {
         Assert.assertEquals(expectedHeader,webOrderFoodOrderPage.actualHeader());
+    }
+
+    @Then("User validates the word {string} from description")
+    public void user_validates_the_word_from_description(String text) {
+    Assert.assertTrue(webOrderFoodOrderPage.validateParagraph(text));
     }
 
 

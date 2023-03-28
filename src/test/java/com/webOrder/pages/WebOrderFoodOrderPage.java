@@ -37,30 +37,43 @@ public class WebOrderFoodOrderPage {
     @FindBy(tagName = "h1")
     WebElement header;
 
+    @FindBy(xpath = "//p[contains(text(),'Your group order')]")
+    WebElement paragraph;
+
     public void clickGroupOrderAndNextButton() throws InterruptedException {
         groupOrderButton.click();
+        Thread.sleep(2000);
         nextButton.click();
     }
 
     public void sendNoteToInvitees(String note) throws InterruptedException {
+        Thread.sleep(2000);
         invitees.sendKeys(note);
     }
 
     public void sendInviteList(String email1,String email2) throws InterruptedException {
+        Thread.sleep(2000);
         inviteList.sendKeys(email1 +" , "+ email2);
     }
 
     public void ChooseAndValidateLocation(String location,String address) throws InterruptedException {
+        Thread.sleep(2000);
         BrowserUtils.selectBy(locationBox,location,"text");//My H// ouse
         Assert.assertTrue(BrowserUtils.getText(addressOfLocation).contains(address)); //3137 Lagula
     }
 
     public void clickGroupOrderButton() throws InterruptedException {
+        Thread.sleep(2000);
         createGroupOrderButton.click();
     }
 
     public String actualHeader() throws InterruptedException {
+        Thread.sleep(2000);
         return BrowserUtils.getText(header);
+    }
+
+    public boolean validateParagraph(String text){
+        return BrowserUtils.getText(paragraph).contains(text);
     }
 
 

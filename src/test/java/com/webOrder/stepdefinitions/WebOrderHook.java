@@ -16,10 +16,10 @@ public class WebOrderHook {
 //    public void setup(){
 //        driver.get(ConfigReader.readProperty("weborderurl"));
 //    }
-//
+
 //    @After
 //    public void tearDown(Scenario scenario){
 //        BrowserUtils.getScreenShotForCucumber(driver,scenario);
-//      //  driver.quit();
+//       driver.quit();
 //    }
 }
