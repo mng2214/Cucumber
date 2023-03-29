@@ -14,7 +14,7 @@ public class SearchParameterStepDef {
     @Given("User navigates to the {string}")
     public void user_navigates_to_the(String url) throws InterruptedException {
         Thread.sleep(3000);
-    driver.get(url);
+//    driver.get(url);
     }
     @When("User searches for {string}")
     public void user_searches_for(String text) {

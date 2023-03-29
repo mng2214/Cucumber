@@ -14,7 +14,7 @@ Feature: WebOrder Page Food Order Functionality
     Then User validates the header of page 'View Group Order'
     And User validates the word 'Your group order is now pending' from description
 
-@smoke @mahmut @ayse
+  @smoke @mahmut @ayse
   Scenario: Testing the happy path food order for Office
     And User chooses the delivery address 'Office' and validates the address '2012 EMPIRE BLVD'
     And User clicks the create Group Order Button
