@@ -47,7 +47,8 @@ public class StepDefSmartBear {
                                                                                                                                    String quantity, String address, String city,
                                                                                                                                    String state, String zip, String cartType, String cardNumber,
                                                                                                                                    String Date) {
-        List<String> list = Arrays.asList("",name, product, date, quantity, address, city, state, zip, cartType, cardNumber, Date,"");
+       // String todayDate = viewAllOrdersPage.dateCorrector();
+        List<String> list = Arrays.asList("", name, product, date, quantity, address, city, state, zip, cartType, cardNumber, Date, "");
         viewAllOrdersPage.validationOrder(list);
     }
 }

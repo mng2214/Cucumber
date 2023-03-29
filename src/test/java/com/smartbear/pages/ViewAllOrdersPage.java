@@ -21,12 +21,17 @@ public class ViewAllOrdersPage {
     @FindBy  (xpath = "//tr[2]//td")
     List<WebElement> actualListElements;
 
+    @FindBy (xpath = "//tr[2]//td[5]")
+    WebElement dateCurrent;
 
     public void validationOrder (List<String> listExpected){
         for (int i = 1; i < actualListElements.size()-1; i++) {
             Assert.assertEquals(listExpected.get(i),BrowserUtils.getText(actualListElements.get(i)));
         }
+    }
 
+    public String dateCorrector () {
+        return BrowserUtils.getText(dateCurrent);
     }
 
 
