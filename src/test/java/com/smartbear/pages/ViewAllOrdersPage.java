@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.BrowserUtils;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,13 +27,16 @@ public class ViewAllOrdersPage {
     WebElement dateCurrent;
 
     public void validationOrder (List<String> listExpected){
+        ViewAllOrdersButton.click();
         for (int i = 1; i < actualListElements.size()-1; i++) {
             Assert.assertEquals(listExpected.get(i),BrowserUtils.getText(actualListElements.get(i)));
         }
     }
 
     public String dateCorrector () {
-        return BrowserUtils.getText(dateCurrent);
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        return (currentDate.format(formatter));
     }
 
 
