@@ -15,8 +15,10 @@ public class LoginPageSmartBear {
 
     @FindBy (css = "#ctl00_MainContent_username")
     WebElement username;
+
     @FindBy (css = "#ctl00_MainContent_password")
     WebElement password;
+
     @FindBy (css = "#ctl00_MainContent_login_button")
     WebElement loginButton;
 
